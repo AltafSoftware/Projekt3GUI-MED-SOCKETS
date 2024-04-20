@@ -33,9 +33,6 @@ button {
 
 button:hover {
     background-color: limegreen;
-    transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
+    transform: translateY(-5px); /* bounce effect */
 }
 
-button:active {
-    transform: translateY(0); /* Reset transform on click */
-}

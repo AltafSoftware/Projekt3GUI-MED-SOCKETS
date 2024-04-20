@@ -16,7 +16,7 @@ h1 {
     font-size: 60px;
     color: #ffffff;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 /* "Spiller 1" og "Spiller 2" ændringer */
 label {
@@ -30,7 +30,7 @@ input[type="text"] {
     font-size: 15px;
     padding: 10px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 100px;
     border: 1px solid #ccc;
     width: 300px;
 }
@@ -64,19 +64,12 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 /* Knap for "tilføj flere spillere" */
 button:hover {
-    background-color: #0026ff;
+    background-color: #1251ff;
     transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
 }
-
-#spillerInput {
-    margin-bottom: 20px; /* Add margin-bottom to separate the groups of input elements */
-}
-
-#spillerInput > * {
-    margin-bottom: 10px; /* Add margin-bottom to each input element for consistent spacing */
-}
-
