@@ -5,7 +5,7 @@ body {
     flex-direction: column; /* Arrange items in a column */
     justify-content: center;
     align-items: center; /* Align items to the center horizontally and vertically */
-    height: 100vh;
+    height: 110vh;
     background: linear-gradient(to right, green, blue);
 }
 
@@ -14,11 +14,28 @@ h1 {
     font-weight: bold;
     font-size: 100px;
     color: #ffffff;
-    margin: -300px 0 0; /* Set margin-top to 20px and remove margin-bottom */
+    margin: -200px 0 0; /* Set margin-top to 20px and remove margin-bottom */
     margin-bottom: 20px; /* Add margin at the bottom to separate the button */
 }
 
 button {
-    font-size: 24px; /* Increase button font size */
-    padding: 20px 40px; /* Adjust padding to make the button larger */
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+}
+
+button:hover {
+    background-color: limegreen;
+    transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
+}
+
+button:active {
+    transform: translateY(0); /* Reset transform on click */
 }

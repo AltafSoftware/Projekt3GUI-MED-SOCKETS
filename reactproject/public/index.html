@@ -8,12 +8,14 @@
 
 </head>
 <body>
-    <h1>DRUKSPIL</h1>
+    <b><h1>DRUKSPIL</h1></b>
     <button id="startKnap">Start spil</button> <!-- Corrected the ID to "startButton" -->
 
     <script>
         document.getElementById("startKnap").addEventListener("click", function() {
             window.location.href = "tilføjSpiller.html"; // Redirect to tilføjSpiller.html
+            // For at kunne ændre på "Start spil" knap på tilføjSpiller-siden.
+            var startKnap = document.querySelector('input[type="submit"]');
         });
     </script>
 

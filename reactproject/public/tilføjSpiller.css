@@ -1,0 +1,82 @@
+/*  */
+body {
+    margin: 10;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    background: linear-gradient(to right, blue, green); /* Yellow to green gradient */
+}
+/* "Tilføj Spillere" header */
+h1 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 60px;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* "Spiller 1" og "Spiller 2" ændringer */
+label {
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    color: #ffffff;
+}
+/* Input-boxes for spillernavne */
+input[type="text"] {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+/* Knap for "Start spil" */
+input[type="submit"] {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Knap for "Start spil" */
+input[type="submit"]:hover {
+    background-color: lime;
+    transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
+}
+
+/* Knap for "tilføj flere spillere" */
+button {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Knap for "tilføj flere spillere" */
+button:hover {
+    background-color: #0026ff;
+    transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
+}
+
+#spillerInput {
+    margin-bottom: 20px; /* Add margin-bottom to separate the groups of input elements */
+}
+
+#spillerInput > * {
+    margin-bottom: 10px; /* Add margin-bottom to each input element for consistent spacing */
+}
+
