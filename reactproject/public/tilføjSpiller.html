@@ -10,21 +10,25 @@
 
 <body>
     <h1>Tilføj spillere</h1>
-    <form id="spillerForm" action="spil.html"> <!-- Redirect to game.html after submitting the form -->
-        <div id="spillerInput">
-            <label for="Spiller 1">Spiller 1:</label>
-            <input type="text" id="Spiller 1" name="Spiller 1"><br><br>
-            <label for="Spiller 2">Spiller 2:</label>
-            <input type="text" id="Spiller 2" name="Spiller 1"><br><br>
-            <input type="submit" value="Start spil">
-            <button id="tilføjSpillereKnap" type="button">Tilføjer flere spillere</button>
-        </div>
-    </form>
+    <div id="playerContainer">
+        <form id="spillerForm" action="spil.html"> <!-- Redirect to game.html after submitting the form -->
+            <div id="spillerInput">
+                <label for="Spiller 1">Spiller 1:</label>
+                <input type="text" id="Spiller 1" name="Spiller 1"><br><br>
+                <label for="Spiller 2">Spiller 2:</label>
+                <input type="text" id="Spiller 2" name="Spiller 1"><br><br>
+            </div>
+            <div id="buttons">
+                <input type="submit" value="Start spil">
+                <button id="tilføjSpillereKnap" type="button">Tilføjer flere spillere</button>
+            </div>
+        </form>
+    </div>
 
     <script>
         document.getElementById("tilføjSpillereKnap").addEventListener("click", function() {
             var playerInputs = document.getElementById("spillerInput");
-            var newPlayerNumber = (playerInputs.children.length / 4) + 0.5; // Calculate the number of the new player
+            var newPlayerNumber = (playerInputs.children.length / 4) + 1; // Calculate the number of the new player
             var newLabel = document.createElement("label");
             newLabel.textContent = "Spiller " + newPlayerNumber + ":";
             var newInput = document.createElement("input");
