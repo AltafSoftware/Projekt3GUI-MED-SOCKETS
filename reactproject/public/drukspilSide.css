@@ -1,0 +1,27 @@
+/* Define styles for the paragraph */
+
+body {
+    /* CSS styles for the body element */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Align items to the center horizontally and vertically */
+    height: 110vh; /* Set height to 110% of viewport height */
+    background: linear-gradient(to right, blue, red); /* Apply gradient background */
+}
+
+h1 {
+    font-family: Arial, sans-serif; /* Font family */
+    font-weight: bold; /* Bold font weight */
+    font-size: 50px; /* Font size */
+    color: #ffffff; /* Text color */
+    margin: -200px 0 20px; /* Set margin-top to -200px, remove margin-bottom, and add margin at the bottom */
+}
+
+p {
+    font-size: 24px;
+    color: blue;
+    font-family: Arial, sans-serif;
+}
