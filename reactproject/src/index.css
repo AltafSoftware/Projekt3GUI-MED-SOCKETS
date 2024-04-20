@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center;
+    align-items: center; /* Align items to the center horizontally and vertically */
+    height: 100vh;
+    background: linear-gradient(to right, green, blue);
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 100px;
+    color: #ffffff;
+    margin: -300px 0 0; /* Set margin-top to 20px and remove margin-bottom */
+    margin-bottom: 20px; /* Add margin at the bottom to separate the button */
+}
+
+button {
+    font-size: 24px; /* Increase button font size */
+    padding: 20px 40px; /* Adjust padding to make the button larger */
+}
