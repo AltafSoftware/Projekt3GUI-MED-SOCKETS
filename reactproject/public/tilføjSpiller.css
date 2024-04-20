@@ -1,75 +1,79 @@
-/*  */
+/* CSS styles for the body element */
 body {
-    margin: 10;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    background: linear-gradient(to right, blue, green); /* Yellow to green gradient */
-}
-/* "Tilføj Spillere" header */
-h1 {
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 60px;
-    color: #ffffff;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-/* "Spiller 1" og "Spiller 2" ændringer */
-label {
-    font-family: Arial, sans-serif;
-    font-size: 25px;
-    color: #ffffff;
-}
-/* Input-boxes for spillernavne */
-input[type="text"] {
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 100px;
-    border: 1px solid #ccc;
-    width: 300px;
-}
-/* Knap for "Start spil" */
-input[type="submit"] {
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    padding: 20px 40px;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
+    margin: 10px; /* Margin around the body */
+    padding: 0; /* No padding */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+    height: 70vh; /* Set height to 70% of viewport height */
+    background: linear-gradient(to right, blue, green); /* Apply gradient background */
 }
 
-/* Knap for "Start spil" */
+/* CSS styles for the "Tilføj Spillere" header */
+h1 {
+    font-family: Arial, sans-serif; /* Font family */
+    font-weight: bold; /* Bold font weight */
+    font-size: 60px; /* Font size */
+    color: #ffffff; /* Text color */
+    margin-top: 20px; /* Top margin */
+    margin-bottom: 10px; /* Bottom margin */
+}
+
+/* CSS styles for the labels "Spiller 1" and "Spiller 2" */
+label {
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 25px; /* Font size */
+    color: #ffffff; /* Text color */
+}
+
+/* CSS styles for the input boxes for player names */
+input[type="text"] {
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 15px; /* Font size */
+    padding: 10px; /* Padding inside the input box */
+    margin: 5px; /* Margin around the input box */
+    border-radius: 100px; /* Border radius for rounded corners */
+    border: 1px solid #ccc; /* Border color and thickness */
+    width: 300px; /* Width of the input box */
+}
+
+/* CSS styles for the "Start spil" button */
+input[type="submit"] {
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 24px; /* Font size */
+    padding: 20px 40px; /* Padding inside the button */
+    background-color: #ffffff; /* Background color */
+    color: #000000; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Border radius for rounded corners */
+    cursor: pointer; /* Cursor style */
+    transition: 0.3s ease; /* Transition effect */
+}
+
+/* CSS styles for the "Start spil" button on hover */
 input[type="submit"]:hover {
-    background-color: lime;
+    background-color: lime; /* Background color on hover */
     transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
 }
 
-/* Knap for "tilføj flere spillere" */
+/* CSS styles for the "tilføj flere spillere" button */
 button {
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    padding: 20px 40px;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 24px; /* Font size */
+    padding: 20px 40px; /* Padding inside the button */
+    background-color: #ffffff; /* Background color */
+    color: #000000; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Border radius for rounded corners */
+    cursor: pointer; /* Cursor style */
+    transition: 0.3s ease; /* Transition effect */
+    margin-top: 60px; /* Top margin */
+    margin-bottom: 60px; /* Bottom margin */
 }
 
-/* Knap for "tilføj flere spillere" */
+/* CSS styles for the "tilføj flere spillere" button on hover */
 button:hover {
-    background-color: #1251ff;
+    background-color: #1251ff; /* Background color on hover */
     transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
 }

@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>DRUKSPIL</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/index.css"> <!-- Link to the external CSS file -->
-
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="src/index.css">
 </head>
-<body>
-    <b><h1>DRUKSPIL</h1></b>
-    <button id="startKnap">Start spil</button> <!-- Corrected the ID to "startButton" -->
 
+<body>
+    <!-- Heading for the drinking game -->
+    <b><h1>DRUKSPIL</h1></b>
+    <!-- Button to start the game -->
+    <button id="startKnap">Start spil</button>
+    
+    <!-- JavaScript to redirect to tilføjSpiller.html -->
     <script>
+        // Listen for click on the start button
         document.getElementById("startKnap").addEventListener("click", function() {
-            window.location.href = "tilføjSpiller.html"; // Redirect to tilføjSpiller.html
-            // For at kunne ændre på "Start spil" knap på tilføjSpiller-siden.
+            // Redirect to tilføjSpiller.html
+            window.location.href = "tilføjSpiller.html";
+            // Select the start button on the tilføjSpiller.html page
             var startKnap = document.querySelector('input[type="submit"]');
         });
     </script>
 
 </body>
+
 </html>
