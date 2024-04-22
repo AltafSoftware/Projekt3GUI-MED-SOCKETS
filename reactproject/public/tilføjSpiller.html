@@ -7,6 +7,9 @@
     <title>Tilføj spillere</title>
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="tilføjSpiller.css">
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -35,15 +38,72 @@
             </div>
         </form>
     </div>
+    <div id="leaderboard">
+        <div id="leaderboardCanvas">
+            <h2>LEADERBOARD</h2>
+            <ol id="leaderboardList"></ol>
+        </div>
+    </div>
 
-    <!-- JavaScript for adding more player inputs -->
     <script>
+        // Function to render the leaderboard
+        function renderLeaderboard(playerNames) {
+            const leaderboardList = document.getElementById('leaderboardList');
+            leaderboardList.innerHTML = ''; // Clear existing leaderboard
+
+            // Loop through the player names and create HTML elements for each entry
+            playerNames.forEach((name, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = name;
+                leaderboardList.appendChild(listItem);
+            });
+        }
+
+        // Handle form submission
+        document.getElementById("spillerForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Get player names from input fields
+            const playerInputs = document.querySelectorAll("input[name^='Spiller']");
+            const playerNames = [];
+            playerInputs.forEach(input => {
+                playerNames.push(input.value);
+            });
+
+            // Render the leaderboard with the new player names
+            renderLeaderboard(playerNames);
+
+            // Send player names to backend
+            fetch('http://localhost:3001/store-players', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ players: playerNames }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Player names sent successfully to backend!');
+                    // Reset input-box
+                    playerInputs.forEach(input => {
+                        input.value = '';
+                    });
+                } else {
+                    console.error('Failed to send player names to backend.');
+                    // Handle error, show error message, or retry
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
         // Function to add more player inputs
         function addPlayerInput() {
             // Get the container for player inputs
             var playerInputs = document.getElementById("spillerInput");
             // Calculate the number of the new player based on the current number of children
-            var newPlayerNumber = Math.floor(playerInputs.children.length / 4) + 2;
+            var newPlayerNumber = playerInputs.querySelectorAll("input[name^='Spiller']").length + 1;
             // Create a new label element for the new player
             var newLabel = document.createElement("label");
             // Set the text content of the new label
@@ -68,43 +128,9 @@
         // Add event listener for the button to add more players
         document.getElementById("tilføjSpillereKnap").addEventListener("click", addPlayerInput);
 
-        // Handle form submission
-        document.getElementById("spillerForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission behavior
-
-            // Get player names from input fields
-            const players = [];
-            const playerInputs = document.querySelectorAll("input[name^='Spiller']");
-            playerInputs.forEach(input => {
-                players.push(input.value);
-            });
-
-            // Send player names to backend
-            fetch('http://localhost:3001/store-players', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ players }),
-            })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Player names sent successfully!');
-                        // Reset input-box
-                        playerInputs.forEach(input => {
-                            input.value = '';
-                        });
-                    } else {
-                        console.error('Failed to send player names to the backend.');
-                        // Handle error, show error message, or retry
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
+        // Call the renderLeaderboard function to initially render the leaderboard
+        renderLeaderboard([]);
     </script>
-
 </body>
 
 </html>

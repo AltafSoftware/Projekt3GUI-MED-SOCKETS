@@ -77,3 +77,26 @@ button:hover {
     background-color: #1251ff; /* Background color on hover */
     transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
 }
+
+/* CSS styles for leaderboard */
+#leaderboard {
+    margin-top: 20px;
+}
+
+#leaderboard h2 {
+    margin-bottom: 10px;
+}
+
+#leaderboardList {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#leaderboardList li {
+    margin-bottom: 5px;
+}
+
+#leaderboardCanvas {
+    background-color: #eee; /* Set canvas background color */
+    padding: 20px; /* Add padding to create spacing between canvas and leaderboard */
+}
