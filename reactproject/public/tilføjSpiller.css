@@ -84,6 +84,7 @@ button:hover {
 }
 
 #leaderboard h2 {
+    font-family: Arial, sans-serif; /* Font family */
     margin-bottom: 10px;
 }
 
@@ -97,6 +98,7 @@ button:hover {
 }
 
 #leaderboardCanvas {
-    background-color: #eee; /* Set canvas background color */
-    padding: 20px; /* Add padding to create spacing between canvas and leaderboard */
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
 }
