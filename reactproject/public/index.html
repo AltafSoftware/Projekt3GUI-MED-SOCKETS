@@ -13,19 +13,18 @@
     <!-- Heading for the drinking game -->
     <b><h1>DRUKSPIL</h1></b>
     <!-- Button to start the game -->
-    <button id="startKnap">Start spil</button>
+    <button id="regKnap">Gå til registrering!</button>
     
     <!-- JavaScript to redirect to tilføjSpiller.html -->
     <script>
         // Listen for click on the start button
-        document.getElementById("startKnap").addEventListener("click", function() {
+        document.getElementById("regKnap").addEventListener("click", function() {
             // Redirect to tilføjSpiller.html
             window.location.href = "tilføjSpiller.html";
             // Select the start button on the tilføjSpiller.html page
-            var startKnap = document.querySelector('input[type="submit"]');
+            var regKnap = document.querySelector('input[type="submit"]');
         });
     </script>
-
 </body>
 
 </html>

@@ -78,27 +78,6 @@ button:hover {
     transform: translateY(-5px); /* Apply translateY transform to create a bounce effect */
 }
 
-/* CSS styles for leaderboard */
-#leaderboard {
-    margin-top: 20px;
-}
 
-#leaderboard h2 {
-    font-family: Arial, sans-serif; /* Font family */
-    margin-bottom: 10px;
-}
 
-#leaderboardList {
-    list-style-type: none;
-    padding-left: 0;
-}
 
-#leaderboardList li {
-    margin-bottom: 5px;
-}
-
-#leaderboardCanvas {
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    padding: 10px;
-}

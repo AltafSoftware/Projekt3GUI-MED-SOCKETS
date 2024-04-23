@@ -13,6 +13,28 @@
     <h1>SPILLET ER STARTET - DRIK!!!</h1>
     <p>ugly ass</p>
 
+    <div id="leaderboard">
+        <div id="leaderboardCanvas">
+            <h2>LEADERBOARD</h2>
+            <ol id="leaderboardList"></ol>
+        </div>
+    </div>
+
+    <script>
+            // Function to render the leaderboard
+            function renderLeaderboard(playerNames) {
+                const leaderboardList = document.getElementById('leaderboardList');
+                leaderboardList.innerHTML = ''; // Clear existing leaderboard
+
+            // Loop through the player names and create HTML elements for each entry
+            playerNames.forEach((name, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = name;
+                leaderboardList.appendChild(listItem);
+            });
+        }
+    </script>
+
 </body>
 
 </html>

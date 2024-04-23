@@ -12,7 +12,7 @@ body {
 
 /* CSS styles for the heading */
 h1 {
-    font-family: Arial, sans-serif; /* Font family */
+    font-family: Arial, Helvetica, sans-serif; /* Font family */
     font-weight: bold; /* Bold font weight */
     font-size: 100px; /* Font size */
     color: #ffffff; /* Text color */

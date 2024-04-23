@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tilføj spillere</title>
+    <title>Registrering</title>
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="tilføjSpiller.css">
     <style>
-        
+        /* Your inline styles here if needed */
     </style>
 </head>
-
 <body>
     <!-- Heading for adding players -->
     <b><h1>INDTAST SPILLERNAVNE</h1></b>
@@ -19,7 +17,7 @@
     <!-- Container for player inputs -->
     <div id="playerContainer">
         <!-- Form for player submission -->
-        <form id="spillerForm" action="drukspilSide.html">
+        <form id="spillerForm">
             <!-- Container for player inputs -->
             <div id="spillerInput">
                 <!-- Label and input field for player 1 -->
@@ -38,27 +36,8 @@
             </div>
         </form>
     </div>
-    <div id="leaderboard">
-        <div id="leaderboardCanvas">
-            <h2>LEADERBOARD</h2>
-            <ol id="leaderboardList"></ol>
-        </div>
-    </div>
 
     <script>
-        // Function to render the leaderboard
-        function renderLeaderboard(playerNames) {
-            const leaderboardList = document.getElementById('leaderboardList');
-            leaderboardList.innerHTML = ''; // Clear existing leaderboard
-
-            // Loop through the player names and create HTML elements for each entry
-            playerNames.forEach((name, index) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = name;
-                leaderboardList.appendChild(listItem);
-            });
-        }
-
         // Handle form submission
         document.getElementById("spillerForm").addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent default form submission behavior
@@ -69,9 +48,6 @@
             playerInputs.forEach(input => {
                 playerNames.push(input.value);
             });
-
-            // Render the leaderboard with the new player names
-            renderLeaderboard(playerNames);
 
             // Send player names to backend
             fetch('http://localhost:3001/store-players', {
@@ -96,6 +72,9 @@
             .catch(error => {
                 console.error('Error:', error);
             });
+
+            // Redirect to the game page
+            window.location.href = 'drukSpilSide.html';
         });
 
         // Function to add more player inputs
@@ -128,9 +107,6 @@
         // Add event listener for the button to add more players
         document.getElementById("tilføjSpillereKnap").addEventListener("click", addPlayerInput);
 
-        // Call the renderLeaderboard function to initially render the leaderboard
-        renderLeaderboard([]);
     </script>
 </body>
-
 </html>
