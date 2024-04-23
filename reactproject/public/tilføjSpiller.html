@@ -7,106 +7,56 @@
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="tilføjSpiller.css">
     <style>
-        /* Your inline styles here if needed */
+        canvas {
+            border: 1px solid black;
+            margin-top: 20px; /* Adjust margin-top as needed */
+        }
     </style>
 </head>
 <body>
     <!-- Heading for adding players -->
-    <b><h1>INDTAST SPILLERNAVNE</h1></b>
+    <div><b><h1 id="overskrift1">SPILLEROVERSIGT</h1></b></div>
+    <div id="spillerListContainer">
+        <ul id="spillerListe">
+        </ul>
+    </div>
+    <div><b><h1 id="overskrift2">INDTAST SPILLERNAVNE</h1></b></div>
     <br><br>
     <!-- Container for player inputs -->
     <div id="playerContainer">
-        <!-- Form for player submission -->
         <form id="spillerForm">
             <!-- Container for player inputs -->
             <div id="spillerInput">
-                <!-- Label and input field for player 1 -->
-                <label for="Spiller1">Spiller 1:</label>
-                <input type="text" id="Spiller1" name="Spiller1"><br><br>
-                <!-- Label and input field for player 2 -->
-                <label for="Spiller2">Spiller 2:</label>
-                <input type="text" id="Spiller2" name="Spiller2"><br>
+                <!-- Label and input field for players -->
+                <label for="Spillere">Spillere:</label>
+                <input type="text" id="Spillere" name="Spillere"><br><br>
             </div>
-            <!-- Container for buttons -->
-            <div id="buttons">
-                <!-- Button to start the game -->
-                <input type="submit" value="Start spil">
-                <!-- Button to add more players -->
-                <button id="tilføjSpillereKnap" type="button">Tilføj flere spillere</button>
+            <!-- Button to add more players -->
+            <div id="button2">
+                <button id="tilføjSpillereKnap" type="button">Tilføj spiller</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <form>
+            <!-- Button to start the game -->
+            <div id="button1">
+            <input id="startSpilKnap" type="submit" value="Start spil">
             </div>
         </form>
     </div>
 
     <script>
-        // Handle form submission
-        document.getElementById("spillerForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission behavior
-
-            // Get player names from input fields
-            const playerInputs = document.querySelectorAll("input[name^='Spiller']");
-            const playerNames = [];
-            playerInputs.forEach(input => {
-                playerNames.push(input.value);
-            });
-
-            // Send player names to backend
-            fetch('http://localhost:3001/store-players', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ players: playerNames }),
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Player names sent successfully to backend!');
-                    // Reset input-box
-                    playerInputs.forEach(input => {
-                        input.value = '';
-                    });
-                } else {
-                    console.error('Failed to send player names to backend.');
-                    // Handle error, show error message, or retry
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-            // Redirect to the game page
-            window.location.href = 'drukSpilSide.html';
+        // Add event listener to the form for starting the game
+        document.getElementById("startSpilKnap").addEventListener("click", function (event) {
+            // Prevent default form submission behavior
+            event.preventDefault();
+            // Redirect to the drukspilSide.html page
+            window.location.href = "drukspilSide.html";
         });
-
-        // Function to add more player inputs
-        function addPlayerInput() {
-            // Get the container for player inputs
-            var playerInputs = document.getElementById("spillerInput");
-            // Calculate the number of the new player based on the current number of children
-            var newPlayerNumber = playerInputs.querySelectorAll("input[name^='Spiller']").length + 1;
-            // Create a new label element for the new player
-            var newLabel = document.createElement("label");
-            // Set the text content of the new label
-            newLabel.textContent = "Spiller " + newPlayerNumber + ": ";
-            // Create a new input element for the new player
-            var newInput = document.createElement("input");
-            // Set the type of the new input element
-            newInput.type = "text";
-            // Set the name attribute of the new input element
-            newInput.name = "Spiller" + newPlayerNumber;
-
-            // Add line break before the new player label and input
-            playerInputs.appendChild(document.createElement("br"));
-            // Append the new label to the container
-            playerInputs.appendChild(newLabel);
-            // Append the new input to the container
-            playerInputs.appendChild(newInput);
-            // Add line break after the new player label and input
-            playerInputs.appendChild(document.createElement("br"));
-        }
-
-        // Add event listener for the button to add more players
-        document.getElementById("tilføjSpillereKnap").addEventListener("click", addPlayerInput);
-
     </script>
+
+    <script src="tilføjSpiller.js"></script>
+    
 </body>
 </html>
