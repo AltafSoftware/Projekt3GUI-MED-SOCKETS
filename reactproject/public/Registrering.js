@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to enable or disable start game button
     function checkCheckboxes() {
         const checkboxes = document.querySelectorAll('#spillerListe input[type="checkbox"]:checked');
-        // TJEKKER HVOR MANGE BOKSE DER ER KRYDSET AF, OG SÆTTER KNAPPEN HEREFTER: <--------------------------------
+        // TJEKKER HVOR MANGE BOKSE DER ER KRYDSET AF, OG SÆTTER KNAPPEN HEREFTER:
         if (startGameButton.disabled = checkboxes.length == 2) {
             startGameButton.disabled = false;
         }
