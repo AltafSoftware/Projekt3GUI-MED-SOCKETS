@@ -7,6 +7,12 @@ body {
     justify-content: center; /* Vertically center content */
     height: 70vh; /* Set height to 70% of viewport height */
     background: linear-gradient(to right, blue, green); /* Apply gradient background */
+
+}
+
+.scrollable {
+    height: 100vh; /* Set a height that exceeds the viewport height */
+   /* overflow-y: scroll;  Enable vertical scrolling */
 }
 
 #overskrift1 {
@@ -14,18 +20,25 @@ body {
     font-weight: bold; /* Bold font weight */
     font-size: 50px; /* Font size */
     color: #ffffff; /* Text color */
-    margin-top: -50px; /* Top margin */
+    margin-top: 1em; /* Top margin */
     margin-bottom: 20px; /* Bottom margin */
-    margin-left: 50px;
+    margin-left: 3em;
     text-align: left;
 }
+.test {
+display: flex;
+align-items: left;
+justify-content: left;
+margin-left: 20em;
+height: fit-content;
 
+}
 /* CSS styles for the player list container */
-#spillerListContainer {
+.spillerListContainer {
     border: 2px solid #ffffff; /* White border */
     border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Padding inside the container */
-    margin-left: 50px; /* Left margin */
+    padding: 2px; /* Padding inside the container */
+    margin-left: 2px; /* Left margin */
     width: fit-content; /* Adjust width to fit content */
 }
 
@@ -35,8 +48,10 @@ body {
     font-size: 20px; /* Font size */
     color: #ffffff; /* Text color */
     list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
+    padding: 50px; /* Remove default padding */
     margin: 0; /* Remove default margin */
+    margin-left: 0.5 em;
+
 }
 
 /* CSS styles for list items */

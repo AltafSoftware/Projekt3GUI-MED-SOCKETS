@@ -7,21 +7,19 @@
     <title>Registrering</title>
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="tilføjSpiller.css">
-    <style>
-        canvas {
-            border: 1px solid black;
-            margin-top: 20px; /* Adjust margin-top as needed */
-        }
-    </style>
 </head>
 
 <body>
+<div class="scrollable">
     <!-- Heading for adding players -->
-    <div><b><h1 id="overskrift1">SPILLEROVERSIGT</h1></b></div>
-    <div id="spillerListContainer">
-        <ul id="spillerListe">
-        </ul>
+    <div class><b><h1 id="overskrift1">SPILLEROVERSIGT</h1></b></div>
+    <div class="test">
+        <div class="spillerListContainer">
+            <ul id="spillerListe">
+            </ul>
+        </div>
     </div>
+
     <div><b><h1 id="overskrift2">INDTAST SPILLERNAVNE</h1></b></div>
     <br><br>
     <!-- Container for player inputs -->
@@ -59,6 +57,7 @@
     </script>
 
     <script src="tilføjSpiller.js"></script>
-    
+</div>
 </body>
+
 </html>
