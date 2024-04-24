@@ -17,7 +17,8 @@ app.use(cors()); // Use the cors middleware
 // app.use(express.static(path.join(__dirname, 'src'))); // ADDED!
 
 // Route to handle POST requests for storing player names
-app.post('/store-player', (req, res) => {
+app.post('/store-player', (req, res) => 
+{
     const playerName = req.body.player; // Get the player name from the request body
     // Write player name to a file 
     fs.appendFile('spillere.txt', playerName + '\n', (err) => {
