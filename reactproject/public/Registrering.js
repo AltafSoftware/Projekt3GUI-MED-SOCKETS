@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // <---------- DETTE NAVN SKAL LAVES OM!
     const startGameButton = document.getElementById("startSpilKnap");
     startGameButton.disabled = true; // Start disabled
 
