@@ -7,7 +7,7 @@ function App() {
   return (
     // Render a div element with a class name of "App"
     <div className="App">
-      {/* Render the text "SOME TEXT!" inside the div */}
+      {/* Render the text "DRUKSPIL" inside the div */}
       DRUKSPIL
     </div>
   );
