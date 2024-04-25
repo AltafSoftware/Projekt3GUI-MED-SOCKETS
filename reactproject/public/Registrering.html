@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrering</title>
+    <link rel="stylesheet" href="Registrering.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Højre sektion for tilføjelse af spillernavne, nu placeret til venstre -->
+        <div class="right-section">
+            <h1 id="overskrift2">REGISTRERING AF SPILLERNAVNE</h1>
+            <div id="playerContainer">
+                <form id="spillerForm">
+                    <div id="spillerInput">
+                        <label for="Spillere">Indtast spillere:</label>
+                        <input type="text" id="Spillere" name="Spillere"><br><br>
+                    </div>
+                    <div id="button2">
+                        <button id="tilføjSpillereKnap" type="button">Tilføj til spilleroversigt</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Venstre sektion for spilleroversigt og start spil, nu placeret til højre -->
+        <div class="left-section">
+            <h1 id="overskrift1">SPILLEROVERSIGT</h1>
+            <div class="spillerListContainer">
+                <ul id="spillerListe">
+                    <!-- Spillerliste elementer indsættes her -->
+                </ul>
+            </div>
+            <div id="button1">
+                <input id="startSpilKnap" type="submit" value="Start spil">
+            </div>
+        </div>
+    </div>
+    
+    <script src="Registrering.js"></script>
+
+</body>
+</html>

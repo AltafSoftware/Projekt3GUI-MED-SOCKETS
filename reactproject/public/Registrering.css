@@ -1,0 +1,157 @@
+body {
+    margin: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70vh;
+    background: linear-gradient(to right, blue, green);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    padding: 20px;
+    box-shadow: 0px 0px 10px white;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.spillerListContainer {
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 1.5em;
+}
+
+#spillerListe {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#spillerListe li {
+    margin-bottom: 10px; /* Afstand mellem navnene */
+    text-align: center; /* Centrerer navnene i listen */
+    padding: 10px 0; /* Tilføjer padding for at gøre listen mere læsbar */
+    border-bottom: 1px solid #ccc; /* Tilføjer en grå linje mellem hvert navn */
+}
+
+#overskrift1, #overskrift2 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+#overskrift1 {
+    font-size: 3em;
+}
+
+#overskrift2 {
+    font-size: 2.5em;
+}
+
+#playerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+#spillerInput, #button1, #button2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    padding: 10px;
+    margin: 5px;
+}
+
+input[type="text"], input[type="submit"], button {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 100px;
+    border: 1px solid #ccc;
+    width: 300px;
+    text-align: center;
+}
+
+input[type="submit"], button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: lime;
+    transform: translateY(-5px);
+}
+
+/* Responsiveness ift. forskellige skærmstørrelser - (min bærbare): */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section, .right-section {
+        margin: 10px 0;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .left-section, .right-section {
+        flex: none;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    #spillerListe, #playerContainer {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input[type="text"], button {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
