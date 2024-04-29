@@ -74,6 +74,15 @@ function addPlayerToList(playerName) {
     function checkCheckboxes() {
         const checkboxes = document.querySelectorAll('#spillerListe input[type="checkbox"]:checked');
         startGameButton.disabled = checkboxes.length !== 2; // Enable start button if exactly two checkboxes are checked
+
+        if (checkboxes.length === 2) {
+            startGameButton.style.backgroundColor = "lime";
+            startGameButton.style.color = "black";
+        }
+        else {
+            startGameButton.style.backgroundColor = "red";
+            startGameButton.style.color = "white";
+        }
     }
 
     // Listen for clicks on the "Start spil" button and perform the associated function

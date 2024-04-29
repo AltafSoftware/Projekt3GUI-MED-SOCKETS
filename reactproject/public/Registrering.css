@@ -84,6 +84,11 @@ body {
     align-items: center;
 }
 
+#startSpilKnap {
+    background-color: #ff3535;
+    color: white;
+}
+
 label {
     font-family: Arial, sans-serif;
     font-size: 24px;
@@ -104,7 +109,7 @@ input[type="text"], input[type="submit"], button {
 }
 
 input[type="submit"], button {
-    background-color: #ffffff;
+    background-color: white;
     color: #000000;
     border: none;
     border-radius: 5px;
