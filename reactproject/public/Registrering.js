@@ -1,33 +1,28 @@
-// DOM (Document Object Model) = represents the structure and content of Registrering.html, allowing JavaScript to interact with and manipulate elements on the page dynamically.
+// Opretter en WebSocket-forbindelse til serveren
+const socket = new WebSocket('ws://localhost:3001');
 
-// Listen for the "DOMContentLoaded" event and perform the associated functions when the document is fully loaded:
+// Lytter for når DOM er fuldt indlæst
 document.addEventListener('DOMContentLoaded', function() {
     const startGameButton = document.getElementById("startSpilKnap");
-    startGameButton.disabled = true; // Disable the start game button initially
+    startGameButton.disabled = true; // Deaktiverer startspil-knappen i starten
 
-    // Add an event listener to the button for adding players
+    // Tilføjer en lytter til knappen for at tilføje spillere
     document.getElementById("tilføjSpillereKnap").addEventListener("click", function() {
         const playerNameInput = document.getElementById("Spillere");
         const playerName = playerNameInput.value.trim();
 
-        // If a player name is specified
         if (playerName) {
-            addPlayerToList(playerName); // Add the player to the list on the page
-            playerNameInput.value = ''; // Reset the player name input field
-
-            // Initialize a fetch request to the specified URL
-            updateServerAndLeaderboard(playerName);
+            addPlayerToList(playerName); // Tilføjer spilleren til listen på siden
+            playerNameInput.value = ''; // Nulstiller inputfeltet
+            socket.send(JSON.stringify({ type: 'storePlayer', player: playerName })); // Sender spillerdata til server via WebSocket
         } else {
-            console.log('Indtast venligst et spillernavn.'); // Log a message if no player name is entered
+            console.log('Indtast venligst et spillernavn.'); // Logger en besked, hvis der ikke er indtastet et navn
         }
     });
 
-// Function to add the player name to the list
-function addPlayerToList(playerName) {
-    const playerList = document.getElementById("spillerListe");
-    const existingPlayers = Array.from(playerList.querySelectorAll('li span')).map(span => span.textContent);
-
-    if (!existingPlayers.includes(playerName)) {
+    // Funktion til at tilføje spillernavnet til listen
+    function addPlayerToList(playerName) {
+        const playerList = document.getElementById("spillerListe");
         const listItem = document.createElement("li");
         listItem.style.display = 'flex';
         listItem.style.alignItems = 'center';
@@ -44,41 +39,36 @@ function addPlayerToList(playerName) {
         listItem.appendChild(checkbox);
 
         playerList.appendChild(listItem);
-    } else {
-        console.log('Player name already added.');
-    }
-}
-
-    // Function to update server and leaderboard
-    function updateServerAndLeaderboard(playerName) {
-        fetch('http://localhost:3001/store-player', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ player: playerName }),
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Spillernavn sendt til backend!');
-            } else {
-                console.error('Fejl ved afsendelse af spillernavn!');
-            }
-        })
-        .catch(error => {
-            console.error('Fejl:', error);
-        });
     }
 
-    // Function to check checkboxes and enable/disable the start game button
+    // Funktion til at kontrollere afkrydsningsfelter og aktivere/deaktivere startspil-knappen
     function checkCheckboxes() {
         const checkboxes = document.querySelectorAll('#spillerListe input[type="checkbox"]:checked');
-        startGameButton.disabled = checkboxes.length !== 2; // Enable start button if exactly two checkboxes are checked
+        startGameButton.disabled = checkboxes.length !== 2; // Aktiverer startknappen, hvis præcis to afkrydsningsfelter er afkrydset
+
+        if (checkboxes.length === 2) {
+            startGameButton.style.backgroundColor = "lime";
+            startGameButton.style.color = "black";
+        } else {
+            startGameButton.style.backgroundColor = "#ff3535";
+            startGameButton.style.color = "white";
+        }
     }
 
-    // Listen for clicks on the "Start spil" button and perform the associated function
+    // Lytter for klik på "Start spil"-knappen og udfører den tilknyttede funktion
     document.getElementById("startSpilKnap").addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent default form submission behavior
-        window.location.href = "spilSide.html"; // Redirect to the game page
+        event.preventDefault(); // Forhindrer standard formularafsendelse
+        window.location.href = "spilSide.html"; // Omdirigerer til spillesiden
     });
 });
+
+// Håndterer beskeder modtaget fra serveren
+socket.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    console.log('Data received:', data);
+};
+
+// Håndterer fejl i WebSocket-forbindelsen
+socket.onerror = function(error) {
+    console.log('WebSocket Error:', error);
+};

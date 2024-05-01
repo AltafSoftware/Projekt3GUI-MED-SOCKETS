@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>SPILLESIDE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="spilSide.css">
+    <script src="spilSide.js"></script> 
 </head>
+
 <body>
     <h1>SPILLET ER STARTET - DRIK!!!</h1>
     <div id="leaderboard">
@@ -14,27 +17,6 @@
             <ol id="leaderboardList"></ol>
         </div>
     </div>
-    <script>
-        function renderLeaderboard(playerNames) {
-            const leaderboardList = document.getElementById('leaderboardList');
-            leaderboardList.innerHTML = '';
-            playerNames.forEach(name => {
-                const listItem = document.createElement('li');
-                listItem.textContent = name;
-                leaderboardList.appendChild(listItem);
-            });
-        }
-
-        function loadLeaderboard() {
-            fetch('http://localhost:3001/get-leaderboard', { cache: 'no-store' })
-            .then(response => response.json())
-            .then(data => {
-                renderLeaderboard(data.players);
-            })
-            .catch(error => console.error('Failed to load leaderboard:', error));
-        }
-
-        window.onload = loadLeaderboard;
-    </script>
 </body>
+
 </html>
