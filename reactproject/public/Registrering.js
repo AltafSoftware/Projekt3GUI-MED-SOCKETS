@@ -51,9 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             startGameButton.style.color = "black";
         } else {
             startGameButton.style.backgroundColor = "#ff3535";
-            startGameButton.style.color = "white";
         }
-    }
 
     // Lytter for klik på "Start spil"-knappen og udfører den tilknyttede funktion
     document.getElementById("startSpilKnap").addEventListener("click", function(event) {
