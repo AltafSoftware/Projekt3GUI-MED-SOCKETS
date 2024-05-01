@@ -2,7 +2,8 @@
 const socket = new WebSocket('ws://localhost:3001');
 
 // Lytter for når DOM er fuldt indlæst
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() 
+{
     const startGameButton = document.getElementById("startSpilKnap");
     startGameButton.disabled = true; // Deaktiverer startspil-knappen i starten
 
@@ -53,11 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
             startGameButton.style.backgroundColor = "#ff3535";
         }
 
-    // Lytter for klik på "Start spil"-knappen og udfører den tilknyttede funktion
-    document.getElementById("startSpilKnap").addEventListener("click", function(event) {
-        event.preventDefault(); // Forhindrer standard formularafsendelse
-        window.location.href = "spilSide.html"; // Omdirigerer til spillesiden
-    });
+        // Lytter for klik på "Start spil"-knappen og udfører den tilknyttede funktion
+        document.getElementById("startSpilKnap").addEventListener("click", function(event) {
+            event.preventDefault(); // Forhindrer standard formularafsendelse
+            window.location.href = "spilSide.html"; // Omdirigerer til spillesiden
+        });
+    }
 });
 
 // Håndterer beskeder modtaget fra serveren
