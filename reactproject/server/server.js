@@ -9,12 +9,11 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 const PORT = process.env.PORT || 3001;
 
-// Sætter serveren til at tjene statiske filer fra 'public' mappen
+// Serve static files from 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
-// Hvis du har andre ressourcer i 'src' mappen, så tjener du dem også
+// Serve resources from 'src' directory if any
 app.use('/src', express.static(path.join(__dirname, 'src'))); 
 
-// Funktion til at håndtere lagring af spiller navne og opdatering af leaderboard
 function storePlayer(playerName, ws) {
     fs.readFile('leaderboard.txt', 'utf8', (err, data) => {
         if (err) {
@@ -38,7 +37,6 @@ function storePlayer(playerName, ws) {
     });
 }
 
-// Funktion til at sende opdateret leaderboard til alle forbundne klienter
 function broadcastLeaderboard() {
     fs.readFile('leaderboard.txt', 'utf8', (err, data) => {
         if (err) {
@@ -46,7 +44,6 @@ function broadcastLeaderboard() {
             return;
         }
         const uniquePlayers = Array.from(new Set(data.trim().split('\n').filter(Boolean)));
-        console.log('Spiller:', uniquePlayers);
         wss.clients.forEach(client => {
             if (client.readyState === WebSocket.OPEN) {
                 client.send(JSON.stringify({ players: uniquePlayers }));
@@ -55,7 +52,15 @@ function broadcastLeaderboard() {
     });
 }
 
-// Håndtering af WebSocket-forbindelser
+function broadcastNumber() {
+    const numberToSend = 42;  // Example number
+    wss.clients.forEach(client => {
+        if (client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify({ number: numberToSend }));
+        }
+    });
+}
+
 wss.on('connection', function(ws) {
     ws.on('message', function(message) {
         const data = JSON.parse(message);
@@ -69,4 +74,5 @@ wss.on('connection', function(ws) {
 
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    broadcastNumber(); // Broadcast number on server start for testing
 });
