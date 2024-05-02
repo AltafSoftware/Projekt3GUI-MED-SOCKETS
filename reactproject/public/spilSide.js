@@ -3,7 +3,7 @@ const socket = new WebSocket('ws://localhost:3001');
 
 socket.onopen = function() {
     console.log('WebSocket-forbindelse oprettet.');
-    socket.send(JSON.stringify({ type: 'requestLeaderboard' })); // Request updated leaderboard
+    // socket.send(JSON.stringify({ type: 'requestLeaderboard' })); // Request updated leaderboard
 };
 
 socket.onmessage = function(event) {
@@ -13,9 +13,8 @@ socket.onmessage = function(event) {
     if (data.players) {
         renderLeaderboard(data.players);
     }
-    if (data.number !== undefined) {
-        console.log('Number received from server:', data.number);
-        displayNumber(data.number);
+    if (data.lowestTime) {
+        displayLowestTime(data.lowestTime);
     }
 };
 
@@ -38,8 +37,7 @@ function renderLeaderboard(playerNames) {
     });
 }
 
-function displayNumber(number) {
-    const numberElement = document.createElement('h2');
-    numberElement.textContent = 'Received Number: ' + number;
-    document.body.appendChild(numberElement);
+function displayLowestTime(time) {
+    const tiderValue = document.getElementById('tiderValue');
+    tiderValue.textContent = time;
 }

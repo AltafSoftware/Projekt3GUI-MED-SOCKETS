@@ -4,6 +4,7 @@ const app = express();
 const http = require('http');
 const WebSocket = require('ws');
 const fs = require('fs');
+const readline = require('readline');
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
@@ -52,11 +53,20 @@ function broadcastLeaderboard() {
     });
 }
 
-function broadcastNumber() {
-    const numberToSend = Math.floor(Math.random() * 100);  // Random number for demonstration
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.on('line', (input) => {
+    const formattedTime = `Laveste tid: ${input.trim()} sekunder`;
+    broadcastNumber(formattedTime); // Broadcast the formatted time to all clients
+});
+
+function broadcastNumber(lowestTime) {
     wss.clients.forEach(client => {
         if (client.readyState === WebSocket.OPEN) {
-            client.send(JSON.stringify({ number: numberToSend }));
+            client.send(JSON.stringify({ lowestTime }));
         }
     });
 }
@@ -74,5 +84,4 @@ wss.on('connection', function(ws) {
 
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-    setInterval(broadcastNumber, 2000); // Broadcast number every 2 seconds
 });
