@@ -31,7 +31,7 @@ p {
     margin-top: 20px;
 }
 
-#leaderboard h2 {
+#leaderboard, #tiderBox h2 {
     font-family: Arial, sans-serif; /* Font family */
     margin-bottom: 10px;
 }
@@ -50,3 +50,20 @@ p {
     background-color: #f0f0f0;
     padding: 10px;
 }
+
+/* Styles for Tider box */
+#tiderBox {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    width: 300px;
+    text-align: center;
+}
+
+#tiderValue {
+    font-size: 24px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+

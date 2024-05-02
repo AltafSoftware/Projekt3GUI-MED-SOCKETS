@@ -1,9 +1,9 @@
-// Opretter en WebSocket-forbindelse til serveren
-const socket = new WebSocket('ws://localhost:3001');
-
 // Lytter for når DOM er fuldt indlæst
 document.addEventListener('DOMContentLoaded', function() 
 {
+    // Opretter en WebSocket-forbindelse til serveren
+    const socket = new WebSocket('ws://localhost:3001');
+    
     const startGameButton = document.getElementById("startSpilKnap");
     startGameButton.disabled = true; // Deaktiverer startspil-knappen i starten
 

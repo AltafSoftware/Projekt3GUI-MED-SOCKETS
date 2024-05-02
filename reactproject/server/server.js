@@ -53,7 +53,7 @@ function broadcastLeaderboard() {
 }
 
 function broadcastNumber() {
-    const numberToSend = 42;  // Example number
+    const numberToSend = Math.floor(Math.random() * 100);  // Random number for demonstration
     wss.clients.forEach(client => {
         if (client.readyState === WebSocket.OPEN) {
             client.send(JSON.stringify({ number: numberToSend }));
@@ -74,5 +74,5 @@ wss.on('connection', function(ws) {
 
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-    broadcastNumber(); // Broadcast number on server start for testing
+    setInterval(broadcastNumber, 2000); // Broadcast number every 2 seconds
 });
