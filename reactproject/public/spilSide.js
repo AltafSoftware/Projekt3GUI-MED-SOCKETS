@@ -26,17 +26,6 @@ socket.onerror = function(error) {
     console.log('WebSocket Error:', error);
 };
 
-function renderLeaderboard(playerNames) {
-    const leaderboardList = document.getElementById('leaderboardList');
-    leaderboardList.innerHTML = '';
-
-    playerNames.forEach(name => {
-        const listItem = document.createElement('li');
-        listItem.textContent = name;
-        leaderboardList.appendChild(listItem);
-    });
-}
-
 function displayLowestTime(time) {
     const tiderValue = document.getElementById('tiderValue');
     tiderValue.textContent = time;
